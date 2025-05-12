@@ -20,7 +20,7 @@ function Contact() {
 
         try {
             setLoading(true);
-            const res = await fetch("https://reqres.in/api/users", {
+            const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -33,12 +33,13 @@ function Contact() {
             }
 
             setLoading(false);
-            alert("Feedback sent successfully");
+            alert("Feedback sent successfully ");
         } catch (error) {
             setLoading(false);
             console.log(error);
         }
     }
+
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-100 p-4">

@@ -2,45 +2,47 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div className="flex items-center justify-center flex-col min-h-screen p-6 bg-slate-50">
-            <h1 className="text-4xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-indigo-600 text-center">
-                INTRODUCTION
+        <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gradient-to-b from-white via-indigo-50 to-purple-100">
+            <h1 className="text-4xl sm:text-3xl md:text-4xl font-bold text-indigo-700 text-center mb-6">
+                About Sushan Shopping
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-slate-700 mt-5 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 text-justify max-w-6xl">
-                I am a 20-year-old software engineering student at Gandaki College of Engineering and Science,
-                affiliated with Pokhara University. Originally from Khudi, Lamjung, I grew up in Pokhara,
-                where I completed my SEE and +2 in science at Gandaki Boarding School. From a young age,
-                I have been captivated by technology and innovation. I thrive on solving complex problems
-                through code and have a deep passion for software development. My expertise lies in front-end
-                technologies like HTML and CSS, and I am currently mastering the MERN stack at Skill Shikshya
-                to build full-fledged web applications.
-                <br />
-                <br />
-                Academically, I have always been a dedicated and high-achieving student.
-                I secured excellent grades in both SEE and +2, excelling in subjects like mathematics and computer science,
-                which further fueled my passion for technology. My ability to grasp complex concepts and apply them
-                practically has set me apart throughout my academic journey. At university, I actively participate in
-                coding competitions, hackathons, and technical seminars to enhance my problem-solving and software
-                development skills.
+            <p className="text-base sm:text-lg md:text-xl text-slate-700 font-medium max-w-6xl text-justify leading-relaxed px-4 sm:px-8">
+                Welcome to <span className="text-indigo-600 font-semibold">Sushan Shopping</span> — your one-stop destination for high-quality fashion, electronics, and lifestyle essentials at unbeatable prices. We believe shopping should be fun, easy, and affordable, and that’s exactly what we deliver every single day.
+                <br /><br />
+                Our journey began with a simple goal: to create an online platform where customers can find everything they need, all in one place, without the hassle. We’re proud to offer a wide range of handpicked products that combine functionality, quality, and style.
+                <br /><br />
+                Whether you're looking for the latest in men’s and women’s fashion, tech gadgets, home essentials, or beauty products — we've got you covered. We collaborate with trusted suppliers and verified brands to ensure every product meets our high standards.
+                <br /><br />
+                At the heart of our operations is a customer-first philosophy. We prioritize your shopping experience from start to finish — offering fast and secure delivery, simple returns, and dedicated customer support that’s always ready to help.
+                <br /><br />
+                We are constantly updating our inventory with new arrivals to keep up with trends and provide fresh collections every week. Plus, our seasonal discounts and exclusive deals mean you can save while shopping smarter.
+                <br /><br />
+                Our platform is built with the latest technologies for a fast, secure, and mobile-friendly experience. Whether you’re browsing from your phone or desktop, Sushan Shopping is optimized for a seamless journey.
+                <br /><br />
+                Transparency is key to us. We provide detailed product descriptions, real customer reviews, and high-quality images so you know exactly what you're buying. No surprises — just satisfaction.
+                <br /><br />
+                We’re more than just a store — we’re a growing community of shoppers who appreciate convenience, value, and good service. Join our newsletter and follow us on social media to stay updated on new drops and limited-time offers.
+                <br /><br />
+                Founded by passionate entrepreneurs who understand the power of technology and eCommerce, Sushan Shopping is committed to pushing boundaries and creating a shopping platform that truly serves people.
+                <br /><br />
+                Thank you for choosing Sushan Shopping. We look forward to becoming your favorite online destination for all things stylish, useful, and affordable.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://github.com/Sushantmg"
-                    className="text-white inline-block bg-indigo-600 px-6 py-2 rounded-full hover:bg-indigo-700 transition duration-300 shadow-md hover:shadow-lg font-medium text-center"
+                    href="/products"
+                    className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition duration-300 shadow-md hover:shadow-lg font-medium"
                 >
-                    Github
+                    🛍️ Start Shopping
                 </a>
                 <a
                     href="/contact"
-                    className="inline-block bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition duration-300 shadow-md hover:shadow-lg font-medium text-center"
+                    className="bg-white text-indigo-600 border border-indigo-600 px-6 py-2 rounded-full hover:bg-indigo-100 transition duration-300 shadow-md hover:shadow-lg font-medium"
                 >
-                    Contact Me
+                    📞 Contact Us
                 </a>
             </div>
         </div>
     );
-}
+};
 
 export default About;

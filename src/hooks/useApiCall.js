@@ -12,7 +12,7 @@ export function useApiCall(apiFunction) {
         apiFunction()
             .then((res) => {
                 if (isMounted) {
-                    setData(res.data); // set only the useful part
+                    setData(res.data);
                     setLoading(false);
                 }
             })
@@ -26,7 +26,7 @@ export function useApiCall(apiFunction) {
         return () => {
             isMounted = false;
         };
-    }, [apiFunction]); // <= causes re-run if apiFunction is not memoized
+    }, [apiFunction]);
 
     return { data, loading, error };
 }

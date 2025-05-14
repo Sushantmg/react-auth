@@ -8,3 +8,6 @@ export async function fetchUsersAxios() {
 
 
 }
+export async function fetchUserById(id) {
+    return axios({ method: "get", url: `${API_BASE_URL}/users/${id}` });
+}

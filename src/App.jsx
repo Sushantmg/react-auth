@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+
 import "./App.css"
 import Layout from "./Components/Layout"
 import About from "./Pages/About/About"
@@ -10,6 +11,8 @@ import Dashboard from "./Pages/Admin/Dashboard/Dashboard"
 import Users from "./Pages/Admin/Users/Users"
 import Products from "./Pages/Admin/Products/Products"
 import ProductDetails from "./Pages/Admin/Products/ProductDetails"
+import UserDetails from "./Pages/Admin/Users/UserDetails"
+
 
 const router = createBrowserRouter([
   {
@@ -37,7 +40,9 @@ const router = createBrowserRouter([
     children: [
       { path: "dashboard", element: <Dashboard /> },
       { path: "users", element: <Users /> },
+
       { path: "products", element: <Products /> },
+      { path: "users/:id", element: <UserDetails /> }
     ],
   },
 ])

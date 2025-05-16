@@ -12,6 +12,9 @@ import Users from "./Pages/Admin/Users/Users"
 import Products from "./Pages/Admin/Products/Products"
 import ProductDetails from "./Pages/Admin/Products/ProductDetails"
 import UserDetails from "./Pages/Admin/Users/UserDetails"
+import { useState } from "react"
+import { CartContext } from "./context/CartContext"
+
 
 
 const router = createBrowserRouter([
@@ -48,10 +51,12 @@ const router = createBrowserRouter([
 ])
 
 function App() {
+  const [cartData, setCartData] = useState([])
   return (
-    <>
+
+    <CartContext.Provider value={{ cartData, setCartData }}>
       <RouterProvider router={router} />
-    </>
+    </CartContext.Provider>
   )
 }
 

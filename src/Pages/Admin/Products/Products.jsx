@@ -1,10 +1,16 @@
-import { NavLink } from "react-router";
-import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import { fetchProductsAxios } from "../../../services/productServices";
 import { useApiCall } from "../../../hooks/useApiCall";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
 
 function Products() {
+
     const { data, error, loading } = useApiCall(fetchProductsAxios);
+    const { cartData, setCartData } = useContext(CartContext);
+
+
 
     const productsPerPage = 6;
     const [currentPage, setCurrentPage] = useState(1);
@@ -35,25 +41,40 @@ function Products() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {Array.isArray(currentProducts) && currentProducts.length > 0 ? (
-                    currentProducts.map((product) => (
-                        <div key={product.id} className="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
-                            <img
-                                src={product.image}
-                                alt={product.title}
-                                className="w-full h-64 object-contain mb-4"
-                            />
-                            <h2 className="text-xl font-bold text-gray-800">{product.title}</h2>
-                            <p className="text-gray-600 mt-2">{product.description}</p>
-                            <p className="text-indigo-600 font-semibold mt-3">Price: ${product.price}</p>
-                            <NavLink to={`/products/${product.id}`} className="mt-4 w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-500 transition">
-                                <button className="mt-4 w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-500 transition">
-                                    View Details
-                                </button>
-                            </NavLink>
+                    currentProducts.map((product) => {
+                        const isInCart = cartData.some((item) => item.id === product.id);
+                        return (
+                            <div key={product.id} className="bg-white rounded-xl shadow p-4 hover:shadow-lg transition">
+                                <img
+                                    src={product.image}
+                                    alt={product.title}
+                                    className="w-full h-64 object-contain mb-4"
+                                />
+                                <h2 className="text-xl font-bold text-gray-800">{product.title}</h2>
+                                <p className="text-gray-600 mt-2">{product.description}</p>
+                                <p className="text-indigo-600 font-semibold mt-3">Price: ${product.price}</p>
 
+                                <NavLink to={`/products/${product.id}`} className="block">
+                                    <button className="mt-4 w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-500 transition">
+                                        View Details
+                                    </button>
+                                </NavLink>
 
-                        </div>
-                    ))
+                                {isInCart ? (
+                                    <div className="text-green-500">Item Already in cart</div>
+                                ) : (
+                                    <button
+                                        onClick={() => {
+                                            setCartData([...cartData, product]);
+                                        }}
+                                        className="p-1 rounded-lg border mt-5 hover:cursor-pointer hover:shadow-md"
+                                    >
+                                        Add to cart
+                                    </button>
+                                )}
+                            </div>
+                        );
+                    })
                 ) : (
                     !loading && <p>No products found or data is invalid.</p>
                 )}

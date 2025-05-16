@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom"; // fixed from "react-router"
 import Logout from "./Logout";
+import CartView from "./CartView";
 
 const navlinkClasses =
     "px-4 py-2 rounded-md transition-all duration-300 text-white hover:bg-white hover:text-indigo-600";
@@ -33,7 +34,9 @@ function Header() {
                         Login
                     </NavLink>
                 )}
+
             </div>
+            <CartView />
         </header>
     );
 }

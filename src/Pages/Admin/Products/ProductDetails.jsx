@@ -96,14 +96,17 @@ function ProductDetail() {
                             <PlusIcon className="h-5 w-5 text-white" />
                         </button>
                     </div>
+                    {
+                        count !== 0 ? (
+                            <button
+                                className="flex items-center justify-center gap-2 px-5 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full shadow-md transition"
+                                onClick={() => setSearchParams({ count: 0, search: searchValue })}
+                            >
+                                <ArrowPathIcon className="h-5 w-5" />
+                                <span className="font-medium">Reset</span>
 
-                    <button
-                        className="flex items-center justify-center gap-2 px-5 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full shadow-md transition"
-                        onClick={() => setSearchParams({ count: 0, search: searchValue })}
-                    >
-                        <ArrowPathIcon className="h-5 w-5" />
-                        <span className="font-medium">Reset</span>
-                    </button>
+                            </button>) : "  "
+                    }
                 </div>
             </div>
         </div>
